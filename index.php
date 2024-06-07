@@ -16,7 +16,7 @@ $resultat_manga = $dbPDO->prepare("
 $resultat_manga->execute();
 $mangas = $resultat_manga->fetchAll(PDO::FETCH_CLASS);
 
-echo "<h2> Liste des mangas : </h2>";
+echo "<h2> List of mangas : </h2>";
 echo "<ul>";
 foreach($mangas as $manga) {
     $release_date = DateTime::createFromFormat("Y-m-d", $manga->date);
