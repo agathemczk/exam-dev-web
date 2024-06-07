@@ -8,11 +8,12 @@ if (isset($_GET['mangaId'])) {
     $mangaID = $_GET['mangaId'];
 
     require_once("C:/MAMP/htdocs/PHP/exam/exam-dev-web/model/pdo.php");
+    
         $resultat_manga = $dbPDO->prepare("
         SELECT mangas.titre AS title, mangas.publication AS date, mangas.note AS mark,
         mangas.description AS synopsis, mangas.id AS id,
         auteurs.prenom AS firstname, auteurs.nom AS name,
-        genres.libelle AS lib,
+        genres.libelle AS lib, genres.id AS genreId,
         personnages.nom AS perso
         FROM mangas
         JOIN auteurs ON mangas.auteur = auteurs.id
@@ -36,7 +37,7 @@ if (isset($_GET['mangaId'])) {
         echo "</br>";
         echo "<p>Characters: $manga->perso</p>";
         echo "</br>";
-        echo "<p>$date | $manga->lib | $manga->mark / 10</p>";
+        echo "<p>$date | <a href='./genre.php?genreId=$manga->genreId'> $manga->lib</a> | $manga->mark / 10</p>";
         echo "</br>";
         echo "<p>Description: $manga->synopsis</p>";
 
