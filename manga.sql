@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jun 07, 2024 at 01:28 PM
+-- Generation Time: Jun 07, 2024 at 01:44 PM
 -- Server version: 5.7.24
 -- PHP Version: 8.0.1
 
@@ -20,6 +20,53 @@ SET time_zone = "+00:00";
 --
 -- Database: `manga`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `auteurs`
+--
+
+CREATE TABLE `auteurs` (
+  `id` int(11) NOT NULL,
+  `prenom` varchar(30) NOT NULL,
+  `nom` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `auteurs`
+--
+
+INSERT INTO `auteurs` (`id`, `prenom`, `nom`) VALUES
+(1, 'Kentarou', 'Miura'),
+(2, 'Makoto', 'Yukimura'),
+(3, 'Naoki', 'Urasawa'),
+(4, 'Eiichiro', 'Oda'),
+(5, 'Takehiko', 'Inoue'),
+(6, 'Mathieu', 'Dupont');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `genres`
+--
+
+CREATE TABLE `genres` (
+  `id` int(11) NOT NULL,
+  `libelle` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `genres`
+--
+
+INSERT INTO `genres` (`id`, `libelle`) VALUES
+(1, 'Action'),
+(2, 'Aventure'),
+(3, 'Drame'),
+(4, 'Mystérieux'),
+(5, 'Fantaisie'),
+(6, 'Western');
 
 -- --------------------------------------------------------
 
@@ -49,9 +96,48 @@ INSERT INTO `mangas` (`id`, `titre`, `auteur`, `genre`, `publication`, `personna
 (4, 'One Piece', 4, 5, '1997-07-22', 7, 9.22, 'Gol D. Roger, a man referred to as the \"King of the Pirates,\" is set to be executed by the World Government. But just before his demise, he confirms the existence of a great treasure, One Piece, located somewhere within the vast ocean known as the Grand Line. Announcing that One Piece can be claimed by anyone worthy enough to reach it, the King of the Pirates is executed and the Great Age of Pirates begins.\r\n\r\nTwenty-two years later, a young man by the name of Monkey D. Luffy is ready to embark on his own adventure, searching for One Piece and striving to become the new King of the Pirates. Armed with just a straw hat, a small boat, and an elastic body, he sets out on a fantastic journey to gather his own crew and a worthy ship that will take them across the Grand Line to claim the greatest status on the high seas.\r\n'),
 (5, 'Vagabond', 5, 1, '1998-09-03', 9, 9.25, 'In 16th-century Japan, Shinmen Takezou is a wild, rough young man, in both his appearance and his actions. His aggressive nature has won him the collective reproach and fear of his village, leading him and his best friend, Matahachi Honiden, to run away in search of something grander than provincial life. The pair enlist in the Toyotomi army, yearning for glory—but when the Toyotomi suffer a crushing defeat at the hands of the Tokugawa Clan at the Battle of Sekigahara, the friends barely make it out alive.\r\n\r\nAfter the two are separated, Shinmen returns home on a self-appointed mission to notify the Hon\'iden family of Matahachi\'s survival. He instead finds himself a wanted criminal, framed for his friend\'s supposed murder based on his history of violence. Upon being captured, he is strung up on a tree and left to die. An itinerant monk, the distinguished Takuan Soho, takes pity on the \"devil child,\" secretly freeing Shinmen and christening him with a new name to avoid pursuit by the authorities: Musashi Miyamoto.\r\n\r\nVagabond is the fictitious retelling of the life of one of Japan\'s most renowned swordsmen, the \"Sword Saint\" Musashi Miyamoto—his rise from a swordsman with no desire other than to become \"Invincible Under the Heavens\" to an enlightened warrior who slowly learns of the importance of close friends, self-reflection, and life itself.');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `personnages`
+--
+
+CREATE TABLE `personnages` (
+  `id` int(11) NOT NULL,
+  `nom` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `personnages`
+--
+
+INSERT INTO `personnages` (`id`, `nom`) VALUES
+(1, 'Guts'),
+(2, 'Griffith'),
+(3, 'Thorfinn'),
+(4, 'Thors'),
+(5, 'Johan'),
+(6, 'Eva'),
+(7, 'Luffy'),
+(8, 'Zoro'),
+(9, 'Musashi'),
+(10, 'Kojirou');
+
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `auteurs`
+--
+ALTER TABLE `auteurs`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `genres`
+--
+ALTER TABLE `genres`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `mangas`
@@ -63,14 +149,38 @@ ALTER TABLE `mangas`
   ADD KEY `personnage` (`personnage`);
 
 --
+-- Indexes for table `personnages`
+--
+ALTER TABLE `personnages`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `auteurs`
+--
+ALTER TABLE `auteurs`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `genres`
+--
+ALTER TABLE `genres`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `mangas`
 --
 ALTER TABLE `mangas`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `personnages`
+--
+ALTER TABLE `personnages`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Constraints for dumped tables
