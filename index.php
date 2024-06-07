@@ -32,6 +32,6 @@ echo "</ul>";
 ?>
 
 <a href="dashboard/addAuthor.php"><button> Add an author </button></a>
-<a href="dashboard/addGenre.php"><button> Add a gender of manga </button></a>
+<a href="dashboard/addGenre.php"><button> Add a genre of manga </button></a>
 <a href="dashboard/addManga.php"><button> Add a manga </button></a>
 <a href="dashboard/updateAuthor.php"><button> Update an author </button></a>
